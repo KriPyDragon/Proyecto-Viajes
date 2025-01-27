@@ -1,0 +1,171 @@
+/* Encabezado */
+header {
+    background: #4CAF50;
+    color: white;
+    padding: 15px 0;
+    border-bottom: 4px solid #388E3C;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive; /* Fuente más elegante */
+}
+
+header nav ul.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul.nav-list li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+header nav ul.nav-list li a:hover {
+    color: #C8E6C9;
+    transform: translateY(-2px);
+}
+
+/* Botón de login */
+header .btn-login {
+    padding: 10px 20px;
+    background-color: #FF5722;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+header .btn-login:hover {
+    background-color: #E64A19;
+    transform: scale(1.05);
+}
+/* Carrusel */
+.carousel {
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-item img {
+    height: 500px; /* Aumenta la altura */
+    object-fit: cover;
+    filter: brightness(0.9); /* Oscurece ligeramente las imágenes */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+/* Cuerpo principal */
+main {
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f9f9f9, #e0f7fa); /* Fondo degradado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: 20px auto;
+    width: 95%;
+    max-width: 1200px;
+}
+
+main h2 {
+    color: #388E3C;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+}
+
+main p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+}
+
+/* Pie de página */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 4px solid #4CAF50;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header .logo h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+a:hover {
+    color: #388E3C;
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul.nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header .btn-login {
+        margin-top: 10px;
+    }
+
+    .carousel-item img {
+        height: 300px; /* Ajusta la altura para móviles */
+    }
+
+    main {
+        padding: 20px;
+    }
+}
