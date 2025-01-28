@@ -1,3 +1,3 @@
 exports.getHome = (req, res) => {
-    res.render('main');
+    res.render('main', { userName: req.session.userName });
 };

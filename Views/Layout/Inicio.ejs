@@ -24,7 +24,11 @@
                 </ul>
             </nav>
             <div class="login-button">
-                <a href="/login" class="btn-login">Login</a>
+                <% if (typeof userName !== 'undefined') { %>
+                    <span>Bienvenido, <%= userName %></span>
+                <% } else { %>
+                    <a href="/login" class="btn-login">Login</a>
+                <% } %>
             </div>
         </div>
     </header>

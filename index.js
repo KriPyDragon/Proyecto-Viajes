@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const db = require('./config');
+const session = require('express-session');
 const rutas = require('./Routes/Rutas');
 
 const app = express();
@@ -16,6 +16,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configuración de archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Configuración del middleware de sesión
+app.use(
+  session({
+    secret: 'tu_clave_secreta', // Cambia esto por una clave segura
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }, // Cambia a true si usas HTTPS
+  })
+);
 
 // Usa las rutas definidas en Routes/Rutas.js
 app.use('/', rutas);
