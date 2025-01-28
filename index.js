@@ -11,6 +11,7 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'Views'));
 
+// Middleware para analizar el cuerpo de las solicitudes
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Configuración de archivos estáticos
