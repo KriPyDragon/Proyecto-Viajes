@@ -20,12 +20,16 @@
                     <li><a href="/destinos">Destinos</a></li>
                     <li><a href="/promociones">Promociones</a></li>
                     <li><a href="/contacto">Contacto</a></li>
-                    <li><a href="/reservas">Reservar</a></li>
                 </ul>
             </nav>
             <div class="login-button">
                 <% if (typeof userName !== 'undefined') { %>
-                    <span>Bienvenido, <%= userName %></span>
+                    <button class="btn-login dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Bienvenido, <%= userName %>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/logout">Cerrar sesión</a>
+                    </div>
                 <% } else { %>
                     <a href="/login" class="btn-login">Login</a>
                 <% } %>

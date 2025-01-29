@@ -20,9 +20,17 @@ router.post(
   authController.postLogin
 );
 
+// Ruta para la página de registro
+router.get('/registro', (req, res) => {
+  res.render('registro');
+});
+
 // Ruta para la página de contacto
 router.get('/contacto', (req, res) => {
   res.render('contacto', { userName: req.session.userName });
 });
+
+// Ruta para cerrar sesión
+router.get('/logout', authController.logout);
 
 module.exports = router;

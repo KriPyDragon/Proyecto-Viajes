@@ -1,4 +1,30 @@
 <%- include('Layout/inicio', { body: `
+  <div id="tour-packages">
+    <h1>Paquetes turísticos</h1>
+
+    <div class="form-group">
+        <label for="origin">ORIGEN</label>
+        <input type="text" id="origin" placeholder="Iquitos, Loreto...">
+    </div>
+
+    <div class="form-group">
+        <label for="destination">DESTINO</label>
+        <input type="text" id="destination" placeholder="Ingrese hacia él...">
+    </div>
+
+    <div class="form-group">
+        <label for="check-in">FECHA DE ENTRADA</label>
+        <input type="date" id="check-in" placeholder="Entrada">
+    </div>
+
+    <div class="form-group">
+        <label for="check-out">FECHA DE SALIDA</label>
+        <input type="date" id="check-out" placeholder="Salida">
+    </div>
+
+    <button id="search">Buscar</button>
+  </div>
+
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -25,4 +51,27 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const checkInInput = document.getElementById('check-in');
+      const checkOutInput = document.getElementById('check-out');
+
+      // Establecer la fecha mínima para el check-in como hoy
+      const today = new Date().toISOString().split('T')[0];
+      checkInInput.setAttribute('min', today);
+
+      // Actualizar la fecha mínima para el check-out cuando se selecciona una fecha de check-in
+      checkInInput.addEventListener('input', function() {
+        checkOutInput.setAttribute('min', checkInInput.value);
+      });
+
+      // Asegurarse de que la fecha de check-out no sea menor que la fecha de check-in
+      checkOutInput.addEventListener('input', function() {
+        if (checkOutInput.value < checkInInput.value) {
+          checkOutInput.value = checkInInput.value;
+        }
+      });
+    });
+  </script>
 ` }) %>

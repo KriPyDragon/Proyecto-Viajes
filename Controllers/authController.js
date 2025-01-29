@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator');
 
 // Mostrar la vista de login
 exports.getLogin = (req, res) => {
-  res.render('login');
+  res.render('login', { errors: null, email: '' });
 };
 
 // Procesar el inicio de sesión
@@ -14,7 +14,11 @@ exports.postLogin = async (req, res) => {
   // Validar errores de express-validator
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    // Renderizar la vista de login con los errores y los datos del formulario
+    return res.render('login', {
+      errors: errors.array(),
+      email: email, // Mantener el correo electrónico ingresado
+    });
   }
 
   // Buscar el usuario en la base de datos
@@ -27,7 +31,10 @@ exports.postLogin = async (req, res) => {
 
     // Verificar si el usuario existe
     if (results.length === 0) {
-      return res.status(400).send('Correo electrónico o contraseña incorrectos');
+      return res.render('login', {
+        errors: [{ msg: 'Correo electrónico o contraseña incorrectos' }],
+        email: email,
+      });
     }
 
     const user = results[0];
@@ -35,7 +42,10 @@ exports.postLogin = async (req, res) => {
     // Verificar la contraseña
     const validPassword = await bcrypt.compare(password, user.contraseña);
     if (!validPassword) {
-      return res.status(400).send('Correo electrónico o contraseña incorrectos');
+      return res.render('login', {
+        errors: [{ msg: 'Correo electrónico o contraseña incorrectos' }],
+        email: email,
+      });
     }
 
     // Almacenar el ID y el nombre del usuario en la sesión
@@ -54,6 +64,6 @@ exports.logout = (req, res) => {
       console.error('Error al cerrar sesión:', err);
       return res.status(500).send('Error al cerrar sesión');
     }
-    res.redirect('/login');
+    res.redirect('/');
   });
 };
