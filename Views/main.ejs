@@ -4,12 +4,26 @@
 
     <div class="form-group">
         <label for="origin">ORIGEN</label>
-        <input type="text" id="origin" placeholder="Iquitos, Loreto...">
+        <input type="text" id="origin" placeholder="Iquitos, Loreto..." list="origin-options">
+        <datalist id="origin-options">
+            <option value="Iquitos, Perú"></option>
+            <option value="Lima, Perú"></option>
+            <option value="Cusco, Perú"></option>
+            <!-- Agrega más opciones según sea necesario -->
+        </datalist>
     </div>
 
     <div class="form-group">
         <label for="destination">DESTINO</label>
-        <input type="text" id="destination" placeholder="Ingrese hacia él...">
+        <input type="text" id="destination" placeholder="Ingrese hacia él..." list="destination-options">
+        <datalist id="destination-options">
+            <option value="Machu Picchu, Perú"></option>
+            <option value="Arequipa, Perú"></option>
+            <option value="Trujillo, Perú"></option>
+            <option value="Puno, Perú"></option>
+            <option value="Tarapoto, Perú"></option>
+            <!-- Agrega más opciones según sea necesario -->
+        </datalist>
     </div>
 
     <div class="form-group">
@@ -24,7 +38,6 @@
 
     <button id="search">Buscar</button>
 </div>
-
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -33,13 +46,25 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="/images/image1.jpg" alt="First slide">
+            <img class="d-block w-100" src="/images/rusia_city.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Rusia</h5>
+                <p>Descubre la majestuosidad de Moscú y San Petersburgo, con sus impresionantes arquitecturas y rica historia.</p>
+            </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="/images/image2.jpg" alt="Second slide">
+            <img class="d-block w-100" src="/images/japon_city.jpg" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Japón</h5>
+                <p>Explora la mezcla de tradición y modernidad en Tokio y Kioto, con sus templos antiguos y tecnología avanzada.</p>
+            </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="/images/image3.jpg" alt="Third slide">
+            <img class="d-block w-100" src="/images/cuzco_city.jpg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Cuzco</h5>
+                <p>Vive la magia del Imperio Inca en Cuzco, la ciudad histórica que te lleva a las puertas de Machu Picchu.</p>
+            </div>
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -50,6 +75,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
+</div>
 </div>
 
 <script>

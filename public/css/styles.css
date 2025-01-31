@@ -115,7 +115,7 @@ header .dropdown-item:hover {
     color: #4CAF50; /* Cambio de color al pasar el mouse */
 }
 
-/* Carrusel */
+/* Estilos para el carrusel */
 .carousel {
     margin-top: 20px;
     border-radius: 15px;
@@ -126,19 +126,69 @@ header .dropdown-item:hover {
 .carousel-item img {
     height: 500px; /* Aumenta la altura */
     object-fit: cover;
-    filter: brightness(0.9); /* Oscurece ligeramente las imágenes */
+    filter: brightness(0.7); /* Oscurece ligeramente las imágenes para mejorar la legibilidad del texto */
+}
+.carousel-caption {
+    position: absolute;
+    top: 60%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(15%, 0%); /* Ajusta el centrado */
+    text-align: center; /* Alinea el texto al centro */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 700px;
 }
 
+.carousel-caption h5 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FF6F61; /* Naranja vibrante para el título */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+    margin-bottom: 10px;
+    font-family: 'Pacifico', cursive; /* Fuente elegante */
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: #fff; /* Texto blanco */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+}
+/* Flechas del carrusel */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 111, 97, 0.8); /* Naranja vibrante con transparencia */
     border-radius: 50%;
-    padding: 10px;
+    padding: 15px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    width: 5%;
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: rgba(255, 59, 47, 0.9); /* Naranja más oscuro al pasar el mouse */
+    transform: scale(1.1); /* Efecto de escala */
+}
+
+/* Indicadores del carrusel */
+.carousel-indicators li {
+    background-color: rgba(255, 111, 97, 0.5); /* Naranja vibrante con transparencia */
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-indicators .active {
+    background-color: #FF6F61; /* Naranja vibrante */
+    transform: scale(1.2); /* Efecto de escala */
+}
+
+.carousel-indicators li:hover {
+    background-color: rgba(255, 59, 47, 0.9); /* Naranja más oscuro al pasar el mouse */
+    transform: scale(1.1); /* Efecto de escala */
 }
 
 /* Cuerpo principal */

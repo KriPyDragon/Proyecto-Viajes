@@ -18,6 +18,14 @@
             <label for="confirmPassword">Confirmar Contraseña</label>
             <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
         </div>
+
+        <% if (errors && errors.length > 0) { %>
+            <div class="alert alert-danger">
+                <% errors.forEach(error => { %>
+                    <p><%= error.msg %></p>
+                <% }) %>
+            </div>
+        <% } %>
         <button type="submit" class="btn-login-submit">Registrarse</button>
         <p class="register-link">¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a></p>
     </form>
