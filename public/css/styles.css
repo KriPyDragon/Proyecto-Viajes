@@ -133,7 +133,7 @@ header .dropdown-item:hover {
     position: absolute;
     top: 60%; /* Centra verticalmente */
     left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta el centrado */
+    transform: translate(15%, 0%); /* Ajusta el centrado */
     text-align: center; /* Alinea el texto al centro */
     background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
     padding: 30px;
