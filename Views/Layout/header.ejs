@@ -28,6 +28,9 @@
                         Bienvenido, <%= userName %>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <% if (typeof userRole !== 'undefined' && userRole === 'admin') { %>
+                            <a class="dropdown-item" href="/crear-vuelos">Crear vuelos</a>
+                        <% } %>
                         <a class="dropdown-item" href="/logout">Cerrar sesión</a>
                     </div>
                 <% } else { %>
@@ -36,3 +39,5 @@
             </div>
         </div>
     </header>
+</body>
+</html>

@@ -48,9 +48,10 @@ exports.postLogin = async (req, res) => {
       });
     }
 
-    // Almacenar el ID y el nombre del usuario en la sesión
+    // Almacenar el ID, nombre y rol del usuario en la sesión
     req.session.userId = user.IdUsuario;
     req.session.userName = user.nombre; // Almacenar el nombre del usuario
+    req.session.userRole = user.rol; // Almacenar el rol del usuario
 
     // Redirigir a la página de inicio (home)
     res.redirect('/');
