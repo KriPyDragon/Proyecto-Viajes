@@ -1,43 +1,54 @@
 <%- include('Layout/header') %>
 <div id="tour-packages">
     <h1>Paquetes turísticos</h1>
+    <form action="/buscar-viajes" method="GET" class="horizontal-form">
+        <div class="form-group">
+            <label for="origin">ORIGEN</label>
+            <input type="text" id="origin" name="origin" placeholder="Iquitos, Loreto..." list="origin-options">
+            <datalist id="origin-options">
+                <option value="Iquitos, Perú"></option>
+                <option value="Lima, Perú"></option>
+                <option value="Cusco, Perú"></option>
+                <!-- Agrega más opciones según sea necesario -->
+            </datalist>
+        </div>
 
-    <div class="form-group">
-        <label for="origin">ORIGEN</label>
-        <input type="text" id="origin" placeholder="Iquitos, Loreto..." list="origin-options">
-        <datalist id="origin-options">
-            <option value="Iquitos, Perú"></option>
-            <option value="Lima, Perú"></option>
-            <option value="Cusco, Perú"></option>
-            <!-- Agrega más opciones según sea necesario -->
-        </datalist>
-    </div>
+        <div class="form-group">
+            <label for="destination">DESTINO</label>
+            <input type="text" id="destination" name="destination" placeholder="Ingrese hacia él..." list="destination-options">
+            <datalist id="destination-options">
+                <option value="Machu Picchu, Perú"></option>
+                <option value="Arequipa, Perú"></option>
+                <option value="Trujillo, Perú"></option>
+                <option value="Puno, Perú"></option>
+                <option value="Tarapoto, Perú"></option>
+                <option value="Lima, Perú"></option>
+                <option value="Iquitos, Perú"></option>
+                <!-- Agrega más opciones según sea necesario -->
+            </datalist>
+        </div>
 
-    <div class="form-group">
-        <label for="destination">DESTINO</label>
-        <input type="text" id="destination" placeholder="Ingrese hacia él..." list="destination-options">
-        <datalist id="destination-options">
-            <option value="Machu Picchu, Perú"></option>
-            <option value="Arequipa, Perú"></option>
-            <option value="Trujillo, Perú"></option>
-            <option value="Puno, Perú"></option>
-            <option value="Tarapoto, Perú"></option>
-            <!-- Agrega más opciones según sea necesario -->
-        </datalist>
-    </div>
+        <div class="form-group">
+            <label for="check-in">FECHA DE ENTRADA</label>
+            <input type="date" id="check-in" name="check-in" placeholder="Entrada">
+        </div>
 
-    <div class="form-group">
-        <label for="check-in">FECHA DE ENTRADA</label>
-        <input type="date" id="check-in" placeholder="Entrada">
-    </div>
+        <div class="form-group" id="check-out-group">
+            <label for="check-out">FECHA DE SALIDA</label>
+            <input type="date" id="check-out" name="check-out" placeholder="Salida">
+        </div>
 
-    <div class="form-group">
-        <label for="check-out">FECHA DE SALIDA</label>
-        <input type="date" id="check-out" placeholder="Salida">
-    </div>
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="one-way" name="one-way">
+            <label for="one-way">Solo ida</label>
+        </div>
 
-    <button id="search">Buscar</button>
+        <div class="form-group button-group">
+            <button type="submit" id="search">Buscar</button>
+        </div>
+    </form>
 </div>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -76,12 +87,13 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
-</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const checkInInput = document.getElementById('check-in');
         const checkOutInput = document.getElementById('check-out');
+        const checkOutGroup = document.getElementById('check-out-group');
+        const oneWayCheckbox = document.getElementById('one-way');
 
         // Establecer la fecha mínima para el check-in como hoy
         const today = new Date().toISOString().split('T')[0];
@@ -96,6 +108,15 @@
         checkOutInput.addEventListener('input', function() {
             if (checkOutInput.value < checkInInput.value) {
                 checkOutInput.value = checkInInput.value;
+            }
+        });
+
+        // Mostrar u ocultar el campo de fecha de salida según el estado del checkbox
+        oneWayCheckbox.addEventListener('change', function() {
+            if (oneWayCheckbox.checked) {
+                checkOutGroup.style.display = 'none';
+            } else {
+                checkOutGroup.style.display = 'block';
             }
         });
     });

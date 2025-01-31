@@ -1,0 +1,52 @@
+<%- include('Layout/header') %>
+<div class="create-flight-container">
+    <h2>Crear Vuelos</h2>
+ 
+    <form action="/crear-vuelos" method="POST" class="create-flight-form">
+        <div class="form-group">
+            <label for="origen">Origen</label>
+            <input type="text" id="origen" name="origen" placeholder="Iquitos, Loreto..." list="origin-options" class="form-control" required>
+            <datalist id="origin-options">
+                <option value="Iquitos, Perú"></option>
+                <option value="Lima, Perú"></option>
+                <option value="Cusco, Perú"></option>
+                <!-- Agrega más opciones según sea necesario -->
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label for="destino">Destino</label>
+            <input type="text" id="destino" name="destino" placeholder="Ingrese hacia él..." list="destination-options" class="form-control" required>
+            <datalist id="destination-options">
+                <option value="Machu Picchu, Perú"></option>
+                <option value="Arequipa, Perú"></option>
+                <option value="Trujillo, Perú"></option>
+                <option value="Puno, Perú"></option>
+                <option value="Tarapoto, Perú"></option>
+                <option value="Lima, Perú"></option>
+                <option value="Iquitos, Perú"></option>
+                <!-- Agrega más opciones según sea necesario -->
+            </datalist>
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="precio">Precio</label>
+            <input type="number" id="precio" name="precio" class="form-control" required>
+        </div>
+        <% if (typeof error !== 'undefined') { %>
+            <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+        <button type="submit" class="btn-create-flight-submit">Crear Vuelo</button>
+    </form>
+  
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fechaInput = document.getElementById('fecha');
+        const today = new Date().toISOString().split('T')[0];
+        fechaInput.setAttribute('min', today);
+    });
+</script>
+<%- include('Layout/footer') %>

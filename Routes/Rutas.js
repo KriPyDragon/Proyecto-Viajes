@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../config');
 const authController = require('../Controllers/authController');
 const mainController = require('../Controllers/mainController');
 const registerController = require('../Controllers/registerController');
@@ -35,6 +36,54 @@ router.post(
   ],
   registerController.postRegister
 );
+
+// Ruta para la página de crear vuelos (protegida para administradores)
+router.get('/crear-vuelos', (req, res) => {
+  if (req.session.userRole === 'admin') {
+    res.render('crear_vuelos', { userName: req.session.userName });
+  } else {
+    res.redirect('/'); // Redirigir a la página de inicio si no es administrador
+  }
+});
+
+// Ruta para procesar la creación de vuelos
+router.post('/crear-vuelos', (req, res) => {
+  const { origen, destino, fecha, precio } = req.body;
+
+  console.log('Origen:', origen, 'Destino:', destino); // Agrega esta línea para verificar los valores
+
+  if (!origen || !destino || !fecha || !precio) {
+    return res.render('crear_vuelos', {
+      userName: req.session.userName,
+      error: 'Todos los campos son obligatorios',
+    });
+  }
+
+  if (origen === destino) {
+    return res.render('crear_vuelos', {
+      userName: req.session.userName,
+      error: 'El origen y el destino no pueden ser los mismos',
+    });
+  }
+
+  const query = 'INSERT INTO vuelos (origen, destino, fecha, precio) VALUES (?, ?, ?, ?)';
+  db.execute(query, [origen, destino, fecha, precio], (err, results) => {
+    if (err) {
+      console.error('Error al crear el vuelo:', err);
+      return res.render('crear_vuelos', {
+        userName: req.session.userName,
+        error: 'Error al crear el vuelo',
+      });
+    }
+    res.redirect('/'); // Redirigir a la página de inicio después de crear el vuelo
+  });
+});
+
+// Ruta para buscar viajes
+router.get('/buscar-viajes', (req, res) => {
+  const { origin, destination, 'check-in': checkIn, 'check-out': checkOut } = req.query;
+  res.render('buscar_viajes', { origin, destination, checkIn, checkOut });
+});
 
 // Ruta para la página de contacto
 router.get('/contacto', (req, res) => {

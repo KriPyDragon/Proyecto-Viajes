@@ -117,7 +117,7 @@ header .dropdown-item:hover {
 
 /* Estilos para el carrusel */
 .carousel {
-    margin-top: 20px;
+    margin-top: 40px; /* Añade margen superior para separarlo del formulario */
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -128,11 +128,12 @@ header .dropdown-item:hover {
     object-fit: cover;
     filter: brightness(0.7); /* Oscurece ligeramente las imágenes para mejorar la legibilidad del texto */
 }
+
 .carousel-caption {
     position: absolute;
     top: 60%; /* Centra verticalmente */
     left: 50%; /* Centra horizontalmente */
-    transform: translate(15%, 0%); /* Ajusta el centrado */
+    transform: translate(-50%, -50%); /* Ajusta el centrado */
     text-align: center; /* Alinea el texto al centro */
     background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
     padding: 30px;
@@ -157,6 +158,7 @@ header .dropdown-item:hover {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif; /* Fuente moderna */
 }
+
 /* Flechas del carrusel */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -381,72 +383,82 @@ a:hover {
     }
 }
 
+/* Estilos para el contenedor de paquetes turísticos */
 #tour-packages {
-    max-width: 800px; /* Ajusta el ancho según sea necesario */
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 1000px; /* Aumenta el ancho máximo */
+    margin: 40px auto; /* Añade margen superior e inferior */
+    padding: 30px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    display: flex; /* Hace que los elementos hijos estén en línea */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben */
-    gap: 10px; /* Espacio entre los elementos */
-    align-items: flex-end; /* Alinea los elementos al fondo */
+    border-radius: 15px;
+    background: white; /* Fondo blanco para resaltar */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los elementos */
+    align-items: flex-end;
 }
 
 #tour-packages h1 {
     width: 100%;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #388E3C; /* Color verde para el título */
+    font-family: 'Montserrat', sans-serif;
 }
 
-#tour-packages .form-group {
+/* Estilos para el formulario horizontal */
+.horizontal-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
     width: 100%;
+}
+
+.horizontal-form .form-group {
+    flex: 1;
+    min-width: 200px; /* Ancho mínimo para evitar que se compriman demasiado */
     margin-bottom: 15px;
 }
 
-.form-group {
-    flex: 1; /* Hace que los grupos de formularios ocupen espacio disponible */
-    min-width: 150px; /* Ancho mínimo para evitar que se compriman demasiado */
+.horizontal-form .form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input, select {
+.horizontal-form .form-group input,
+.horizontal-form .form-group datalist {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.horizontal-form .form-group input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
 }
 
-button:hover {
-    background-color: #0056b3;
+.horizontal-form .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
 }
 
-.options {
-    flex-basis: 100%; /* Hace que las opciones ocupen toda la línea */
-    margin-top: 15px;
+.horizontal-form .button-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.options label {
-    display: inline-block; /* Coloca las opciones en línea */
-    margin-right: 15px;
-}
-
-#tour-packages button#search {
-    width: 100%; /* Hace que el botón ocupe todo el ancho disponible */
-    padding: 10px;
+.horizontal-form button {
+    padding: 12px 24px;
     background-color: #007BFF;
     color: white;
     border: none;
@@ -457,7 +469,38 @@ button:hover {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-#tour-packages button#search:hover {
+.horizontal-form button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+/* Estilos para el checkbox de "Solo ida" */
+.horizontal-form .form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.horizontal-form .form-group.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    #tour-packages {
+        padding: 20px;
+    }
+
+    .horizontal-form .form-group {
+        min-width: 100%; /* Hace que los campos ocupen todo el ancho en móviles */
+    }
+
+    .horizontal-form button {
+        width: 100%; /* Hace que el botón ocupe todo el ancho en móviles */
+    }
+
+    .carousel-item img {
+        height: 300px; /* Ajusta la altura para móviles */
+    }
 }
