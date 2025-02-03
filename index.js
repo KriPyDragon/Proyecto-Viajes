@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
 const rutas = require('./Routes/Rutas');
+const sessionMiddleware = require('./middleware/sessionMiddleware'); // Importa el middleware de sesión
 
 const app = express();
 const port = 3000;
@@ -26,6 +27,9 @@ app.use(
     cookie: { secure: false }, // Cambia a true si usas HTTPS
   })
 );
+
+// Usa el middleware de sesión
+app.use(sessionMiddleware);
 
 // Usa las rutas definidas en Routes/Rutas.js
 app.use('/', rutas);

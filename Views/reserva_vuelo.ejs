@@ -1,0 +1,33 @@
+<%- include('Layout/header') %>
+<div class="reservation-container">
+    <h2>Reserva de Vuelo</h2>
+   
+    <form action="/reservar-vuelo" method="POST" class="reservation-form">
+        <div class="form-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="vuelo">ID del Vuelo</label>
+            <input type="text" id="vuelo" name="vuelo" class="form-control" value="<%= vuelo.idvuelos %>" readonly>
+        </div>
+        <% if (typeof message !== 'undefined') { %>
+            <div class="alert alert-success">
+                <%= message %>
+                <% if (typeof pdfPath !== 'undefined') { %>
+                    <br>
+                    <a href="<%= pdfPath %>" download>Descargar PDF</a>
+                <% } %>
+            </div>
+        <% } %>
+        <% if (typeof error !== 'undefined') { %>
+            <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+        <button type="submit" class="btn-reservation-submit">Reservar</button>
+    </form>
+</div>
+<%- include('Layout/footer') %>

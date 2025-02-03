@@ -23,12 +23,12 @@
                 </ul>
             </nav>
             <div class="login-button">
-                <% if (typeof userName !== 'undefined') { %>
+                <% if (userName) { %>
                     <button class="btn-login dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Bienvenido, <%= userName %>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <% if (typeof userRole !== 'undefined' && userRole === 'admin') { %>
+                        <% if (userRole === 'admin') { %>
                             <a class="dropdown-item" href="/crear-vuelos">Crear vuelos</a>
                         <% } %>
                         <a class="dropdown-item" href="/logout">Cerrar sesión</a>
