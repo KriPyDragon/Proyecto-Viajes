@@ -1,3 +1,26 @@
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+a:hover {
+    color: #388E3C;
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
 /* Encabezado */
 header {
     background: #4CAF50;
@@ -14,12 +37,13 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
 
 header .logo h1 {
     margin: 0;
     font-size: 2rem;
-    font-family: 'Pacifico', cursive; /* Fuente más elegante */
+    font-family: 'Pacifico', cursive;
 }
 
 header nav ul.nav-list {
@@ -46,123 +70,126 @@ header nav ul.nav-list li a:hover {
 /* Botón de login */
 header .btn-login {
     padding: 10px 20px;
-    background-color: #FF6F61; /* Naranja vibrante */
+    background-color: #FF6F61;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 25px; /* Bordes redondeados */
+    border-radius: 25px;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header .btn-login:hover {
-    background-color: #FF3B2F; /* Naranja más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Efecto de escala */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    background-color: #FF3B2F;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo para el botón del dropdown */
-header .dropdown .btn-secondary {
-    background-color: #4CAF50; /* Verde para que combine con el header */
-    border: none;
-    border-radius: 25px; /* Bordes redondeados */
+/* Botón de bienvenida del usuario */
+header .btn-login.dropdown-toggle {
     padding: 10px 20px;
-    font-weight: bold;
-    font-size: 1rem;
-    color: white;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-header .dropdown .btn-secondary:hover {
-    background-color: #388E3C; /* Verde más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Efecto de escala */
-}
-
-/* Estilo para el botón del dropdown */
-header .dropdown .btn-login {
-    background-color: #FF6F61; /* Naranja vibrante */
+    background-color: #FF6F61;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 25px; /* Bordes redondeados */
+    border-radius: 25px;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-header .dropdown .btn-login:hover {
-    background-color: #FF3B2F; /* Naranja más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Efecto de escala */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+header .btn-login.dropdown-toggle:hover {
+    background-color: #FF3B2F;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo para el menú desplegable */
+header .btn-login .user-icon {
+    background-color: white;
+    color: #FF6F61;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+}
+
+/* Menú desplegable */
 header .dropdown-menu {
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px;
     border: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin-top: 10px; /* Espacio entre el botón y el menú */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    right: 0;
+    left: auto;
 }
 
 header .dropdown-item {
-    color: #555; /* Color de texto */
+    color: #555;
     font-size: 0.9rem;
     padding: 10px 20px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 header .dropdown-item:hover {
-    background-color: #f9f9f9; /* Fondo al pasar el mouse */
-    color: #4CAF50; /* Cambio de color al pasar el mouse */
+    background-color: #f9f9f9;
+    color: #4CAF50;
 }
 
-/* Estilos para el carrusel */
+/* Carrusel */
 .carousel {
-    margin-top: 40px; /* Añade margen superior para separarlo del formulario */
+    margin-top: 70px;
+    margin-bottom: 30px; 
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-item img {
-    height: 500px; /* Aumenta la altura */
+    height: 500px;
     object-fit: cover;
-    filter: brightness(0.7); /* Oscurece ligeramente las imágenes para mejorar la legibilidad del texto */
+    filter: brightness(0.7);
 }
 
 .carousel-caption {
     position: absolute;
-    top: 60%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta el centrado */
-    text-align: center; /* Alinea el texto al centro */
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
-    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(15%, 15%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    width: 90%;
+    width: 70%;
     max-width: 700px;
+    height: auto; /* Ajusta la altura automáticamente */
+    padding: 30px;
 }
 
 .carousel-caption h5 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #FF6F61; /* Naranja vibrante para el título */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+    color: #FF6F61;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     margin-bottom: 10px;
-    font-family: 'Pacifico', cursive; /* Fuente elegante */
+    font-family: 'Pacifico', cursive;
 }
 
 .carousel-caption p {
     font-size: 1.2rem;
-    color: #fff; /* Texto blanco */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     line-height: 1.6;
-    font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Flechas del carrusel */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: rgba(255, 111, 97, 0.8); /* Naranja vibrante con transparencia */
+    background-color: rgba(255, 111, 97, 0.8);
     border-radius: 50%;
     padding: 15px;
     transition: background-color 0.3s, transform 0.3s;
@@ -170,13 +197,12 @@ header .dropdown-item:hover {
 
 .carousel-control-prev-icon:hover,
 .carousel-control-next-icon:hover {
-    background-color: rgba(255, 59, 47, 0.9); /* Naranja más oscuro al pasar el mouse */
-    transform: scale(1.1); /* Efecto de escala */
+    background-color: rgba(255, 59, 47, 0.9);
+    transform: scale(1.1);
 }
 
-/* Indicadores del carrusel */
 .carousel-indicators li {
-    background-color: rgba(255, 111, 97, 0.5); /* Naranja vibrante con transparencia */
+    background-color: rgba(255, 111, 97, 0.5);
     border-radius: 50%;
     width: 10px;
     height: 10px;
@@ -184,19 +210,20 @@ header .dropdown-item:hover {
 }
 
 .carousel-indicators .active {
-    background-color: #FF6F61; /* Naranja vibrante */
-    transform: scale(1.2); /* Efecto de escala */
+    background-color: #FF6F61;
+    transform: scale(1.2);
 }
 
 .carousel-indicators li:hover {
-    background-color: rgba(255, 59, 47, 0.9); /* Naranja más oscuro al pasar el mouse */
-    transform: scale(1.1); /* Efecto de escala */
+    background-color: rgba(255, 59, 47, 0.9);
+    transform: scale(1.1);
 }
 
-/* Cuerpo principal */
+/* Contenedor principal */
 main {
-    padding: 40px 0;
-    background: linear-gradient(135deg, #f9f9f9, #e0f7fa); /* Fondo degradado */
+    flex: 1;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     margin: 20px auto;
@@ -209,7 +236,7 @@ main h2 {
     margin-bottom: 20px;
     font-size: 2.5rem;
     text-align: center;
-    font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+    font-family: 'Montserrat', sans-serif;
 }
 
 main p {
@@ -226,8 +253,8 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: 40px;
     border-top: 4px solid #4CAF50;
+    margin-top: auto;
 }
 
 footer p {
@@ -236,51 +263,7 @@ footer p {
     font-family: 'Montserrat', sans-serif;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-}
-
-header .logo h1 {
-    font-family: 'Pacifico', cursive;
-}
-
-a {
-    color: #4CAF50;
-    text-decoration: none;
-    transition: color 0.3s, transform 0.3s;
-}
-
-a:hover {
-    color: #388E3C;
-    text-decoration: underline;
-    transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    header nav ul.nav-list {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    header .btn-login {
-        margin-top: 10px;
-    }
-
-    .carousel-item img {
-        height: 300px; /* Ajusta la altura para móviles */
-    }
-
-    main {
-        padding: 20px;
-    }
-}
-
-/* Estilos para el contenedor de login y registro */
+/* Estilos para el contenedor de login */
 .login-container {
     max-width: 400px;
     margin: 50px auto;
@@ -298,7 +281,6 @@ a:hover {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilos para el formulario */
 .login-form {
     display: flex;
     flex-direction: column;
@@ -331,7 +313,6 @@ a:hover {
     outline: none;
 }
 
-/* Estilos para el botón de submit */
 .btn-login-submit {
     padding: 10px;
     background-color: #4CAF50;
@@ -349,7 +330,6 @@ a:hover {
     transform: scale(1.05);
 }
 
-/* Estilos para el enlace de registro */
 .register-link {
     margin-top: 10px;
     font-size: 0.9rem;
@@ -367,34 +347,18 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
-    .login-container {
-        margin: 20px;
-        padding: 20px;
-    }
-
-    .login-container h2 {
-        font-size: 1.5rem;
-    }
-
-    .btn-login-submit {
-        font-size: 0.9rem;
-    }
-}
-
-/* Estilos para el contenedor de paquetes turísticos */
+/* Contenedor de paquetes turísticos */
 #tour-packages {
-    max-width: 1000px; /* Aumenta el ancho máximo */
-    margin: 40px auto; /* Añade margen superior e inferior */
+    max-width: 1000px;
+    margin: 40px auto;
     padding: 30px;
     border: 1px solid #ccc;
     border-radius: 15px;
-    background: white; /* Fondo blanco para resaltar */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Espacio entre los elementos */
+    gap: 20px;
     align-items: flex-end;
 }
 
@@ -403,11 +367,10 @@ a:hover {
     text-align: center;
     margin-bottom: 30px;
     font-size: 2.5rem;
-    color: #388E3C; /* Color verde para el título */
+    color: #388E3C;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilos para el formulario horizontal */
 .horizontal-form {
     display: flex;
     flex-wrap: wrap;
@@ -418,7 +381,7 @@ a:hover {
 
 .horizontal-form .form-group {
     flex: 1;
-    min-width: 200px; /* Ancho mínimo para evitar que se compriman demasiado */
+    min-width: 200px;
     margin-bottom: 15px;
 }
 
@@ -474,33 +437,370 @@ a:hover {
     transform: scale(1.05);
 }
 
-/* Estilos para el checkbox de "Solo ida" */
-.horizontal-form .form-group.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.no-flights-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #FF6F61;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #FF6F61;
 }
 
-.horizontal-form .form-group.checkbox-group label {
-    margin-bottom: 0;
-    font-weight: normal;
+/* Contenedor de resultados de búsqueda */
+.search-results-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-results-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #388E3C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.search-results-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.search-results-container li {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.search-results-container li:last-child {
+    border-bottom: none;
+}
+
+.search-results-container p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.btn-reserve-flight {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-reserve-flight:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+.no-flights-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #FF6F61;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #FF6F61;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
-    #tour-packages {
-        padding: 20px;
+    header .container {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .horizontal-form .form-group {
-        min-width: 100%; /* Hace que los campos ocupen todo el ancho en móviles */
+    header nav ul.nav-list {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .horizontal-form button {
-        width: 100%; /* Hace que el botón ocupe todo el ancho en móviles */
+    header .btn-login {
+        margin-top: 10px;
     }
 
     .carousel-item img {
-        height: 300px; /* Ajusta la altura para móviles */
+        height: 300px;
     }
+
+    .carousel-caption {
+        padding: 15px;
+        top: 50%;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .login-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .horizontal-form {
+        flex-direction: column;
+    }
+
+    .horizontal-form .form-group {
+        min-width: 100%;
+    }
+
+    .horizontal-form button {
+        width: 100%;
+    }
+}
+
+/* Contenedor de contacto */
+.contact-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 100px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #388E3C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-form .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.contact-form .form-group .form-control {
+    padding: 15px; /* Aumenta el padding para hacer los campos más grandes */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form .form-group .form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+}
+
+.contact-form .form-group textarea.form-control {
+    height: 150px; /* Aumenta la altura del campo de mensaje */
+}
+
+.btn-contact-submit {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-contact-submit:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+/* Contenedor de reserva de vuelo */
+.reservation-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.reservation-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #388E3C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reservation-form .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.reservation-form .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.reservation-form .form-group .form-control {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.reservation-form .form-group .form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+}
+
+.btn-reservation-submit {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.btn-reservation-submit:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Contenedor de creación de vuelos */
+.create-flight-container {
+    max-width: 900px; /* Cambia este valor para que coincida con el contenedor de contacto */
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.create-flight-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #388E3C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.create-flight-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.create-flight-form .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.create-flight-form .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.create-flight-form .form-group .form-control {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.create-flight-form .form-group .form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+}
+
+.btn-create-flight-submit {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.btn-create-flight-submit:hover {
+    background-color: #388E3C;
+    transform: scale(1.05);
 }
